@@ -1,0 +1,90 @@
+/** @format */
+
+.Row {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.Row > div {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #bbb;
+  margin: 4px;
+  text-align: center;
+  line-height: 60px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.5em;
+}
+.Row > div.green {
+  --background: #5ac85a;
+  --border-color: #5ac85a;
+  animation: flip 0.5s ease forwards;
+}
+.Row > div.grey {
+  --background: #a1a1a1;
+  --border-color: #a1a1a1;
+  animation: flip 0.5s ease forwards;
+}
+.Row > div.yellow {
+  --background: #e2cc68;
+  --border-color: #e2cc68;
+  animation: flip 0.5s ease forwards;
+}
+.Row > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.Row > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.Row > div:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.Row > div:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.Row.Current > div.filled {
+  animation: bounce 0.2s ease-in-out forwards;
+}
+
+/* ANIMATIONS */
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+    background: #fff;
+    border-color: #333;
+  }
+  45% {
+    transform: rotateX(90deg);
+    background: #fff;
+    border-color: #333;
+  }
+  55% {
+    transform: rotateX(90deg);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: #eee;
+  }
+  100% {
+    transform: rotateX(0);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: #eee;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+    border-color: #ddd;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    border-color: #333;
+  }
+}
